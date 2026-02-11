@@ -303,7 +303,7 @@ class SongJSONSplit:
 
     _FIELDS = (
         "song_title", "tags", "lyrics", "bpm", "duration",
-        "key", "language", "time_signature", "seed",
+        "key", "language", "time_signature", "seed", "filename", "summary",
     )
 
     @classmethod
@@ -337,7 +337,44 @@ class SongJSONSplit:
         except Exception:
             data = {}
 
-        return tuple(str(data.get(f, "")) if data.get(f) is not None else "" for f in self._FIELDS)
+        results = []
+        for f in self._FIELDS:
+            if f == "filename":
+                title = str(data.get("song_title", "")) if data.get("song_title") is not None else ""
+                safe = re.sub(r'[<>:"/\\|?*]', '', title)
+                safe = re.sub(r'[\s]+', '_', safe).strip('_. ')
+                results.append(safe or "untitled")
+            elif f == "summary":
+                title = data.get("song_title", "") or "Untitled"
+                bpm = data.get("bpm", "")
+                dur = data.get("duration", "")
+                key = data.get("key", "")
+                lang = data.get("language", "")
+                ts = data.get("time_signature", "")
+                seed = data.get("seed")
+                tags = data.get("tags", "")
+                lyrics = data.get("lyrics", "")
+
+                mins = f"{int(dur) // 60}:{int(dur) % 60:02d}" if dur and str(dur).isdigit() else str(dur)
+                lines = [
+                    f"Title:          {title}",
+                    f"BPM:            {bpm}",
+                    f"Key:            {key}",
+                    f"Time Signature: {ts}/4" if ts else "",
+                    f"Duration:       {mins}",
+                    f"Language:       {lang}",
+                    f"Seed:           {seed}" if seed is not None else "",
+                    "",
+                    "--- Tags ---",
+                    str(tags),
+                    "",
+                    "--- Lyrics ---",
+                    str(lyrics),
+                ]
+                results.append("\n".join(line for line in lines if line is not None))
+            else:
+                results.append(str(data.get(f, "")) if data.get(f) is not None else "")
+        return tuple(results)
 
 
 NODE_CLASS_MAPPINGS["SongJSONSplit"] = SongJSONSplit

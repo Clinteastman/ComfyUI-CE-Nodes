@@ -1,0 +1,2180 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 156,
+  "last_link_id": 116,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1137.171250893065,
+        275.1723792495618
+      ],
+      "size": [
+        324,
+        316.921875
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 21
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 22
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            37
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        329584903192127,
+        "randomize",
+        30,
+        1,
+        "jkass_quality",
+        "sgm_uniform",
+        1
+      ]
+    },
+    {
+      "id": 18,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1362.0746797125103,
+        133.49160668011723
+      ],
+      "size": [
+        225,
+        71.59375
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 113
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "VAEDecodeAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 47,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1042.0334470736207,
+        178.0697859335894
+      ],
+      "size": [
+        244.9375,
+        47.59375
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            22,
+            32,
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "ConditioningZeroOut",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 78,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [
+        640.026068601399,
+        140.0070417929644
+      ],
+      "size": [
+        324,
+        79.59375
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20,
+            30,
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "ModelSamplingAuraFlow",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 98,
+      "type": "EmptyAceStep1.5LatentAudio",
+      "pos": [
+        576.3042804069541,
+        -44.31926571571603
+      ],
+      "size": [
+        377.875,
+        111.59375
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "link": 104
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "EmptyAceStep1.5LatentAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        120,
+        1
+      ]
+    },
+    {
+      "id": 104,
+      "type": "UNETLoader",
+      "pos": [
+        184.93492276806546,
+        126.46035668011723
+      ],
+      "size": [
+        324,
+        116.921875
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "acestep_v1.5_merge_sft_turbo_ta_0.5.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 105,
+      "type": "DualCLIPLoader",
+      "pos": [
+        186.2087942958433,
+        290.44323970963114
+      ],
+      "size": [
+        324,
+        183.578125
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "DualCLIPLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "qwen_0.6b_ace15.safetensors",
+        "qwen_4b_ace15.safetensors",
+        "ace",
+        "default"
+      ]
+    },
+    {
+      "id": 106,
+      "type": "VAELoader",
+      "pos": [
+        183.8650442958433,
+        3.0787377565061433
+      ],
+      "size": [
+        324,
+        82.25
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "ace_1.5_vae.safetensors"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "SaveAudioMP3",
+      "pos": [
+        2012.9169648687603,
+        157.47503224435332
+      ],
+      "size": [
+        656.125,
+        156.25
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 29
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 68
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "SaveAudioMP3",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "audio/ComfyUI",
+        "V0"
+      ]
+    },
+    {
+      "id": 109,
+      "type": "KSampler",
+      "pos": [
+        1141.2942435145933,
+        998.9393334596311
+      ],
+      "size": [
+        324,
+        316.921875
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 30
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 31
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 32
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        674981136148209,
+        "randomize",
+        15,
+        1,
+        "jkass_quality",
+        "sgm_uniform",
+        0.15
+      ]
+    },
+    {
+      "id": 110,
+      "type": "KSampler",
+      "pos": [
+        1143.6567109625103,
+        633.9317379735198
+      ],
+      "size": [
+        324,
+        316.921875
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 34
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 35
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 36
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        781352889549079,
+        "randomize",
+        20,
+        1,
+        "jkass_quality",
+        "sgm_uniform",
+        0.35
+      ]
+    },
+    {
+      "id": 111,
+      "type": "AudioQualityEnhancer",
+      "pos": [
+        1610.2992348340376,
+        150.0146372790755
+      ],
+      "size": [
+        352.875,
+        535.578125
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "aux_id": "ShmuelRonen/ComfyUI-Audio_Quality_Enhancer",
+        "ver": "7ddcfd8c660e9dfad6299af21e3a182c60e81a0f",
+        "Node name for S&R": "AudioQualityEnhancer",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        1,
+        true,
+        "htdemucs",
+        "cuda",
+        0.4,
+        0.5,
+        0.4,
+        0.4,
+        0.4,
+        0.3,
+        0.2,
+        0.3,
+        1,
+        "Standard",
+        true
+      ]
+    },
+    {
+      "id": 94,
+      "type": "TextEncodeAceStepAudio1.5",
+      "pos": [
+        585.6830781500098,
+        300.73105437977006
+      ],
+      "size": [
+        480,
+        433.125
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 28
+        },
+        {
+          "name": "tags",
+          "type": "STRING",
+          "widget": {
+            "name": "tags"
+          },
+          "link": 114
+        },
+        {
+          "name": "lyrics",
+          "type": "STRING",
+          "widget": {
+            "name": "lyrics"
+          },
+          "link": 115
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 70
+        },
+        {
+          "name": "bpm",
+          "type": "INT",
+          "widget": {
+            "name": "bpm"
+          },
+          "link": 100
+        },
+        {
+          "name": "duration",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": 103
+        },
+        {
+          "name": "timesignature",
+          "type": "COMBO",
+          "widget": {
+            "name": "timesignature"
+          },
+          "link": 107
+        },
+        {
+          "name": "language",
+          "type": "COMBO",
+          "widget": {
+            "name": "language"
+          },
+          "link": 106
+        },
+        {
+          "name": "keyscale",
+          "type": "COMBO",
+          "widget": {
+            "name": "keyscale"
+          },
+          "link": 105
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            21,
+            26,
+            31,
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "TextEncodeAceStepAudio1.5",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "Saxophone jazz infused A comedic satirical hip-hop track with playful sarcastic tone, built around modern trap production. Bouncy punchy drums, heavy 808 bass, bright digital synth leads, and glitchy tech-style sound effects. Mid-tempo groove around 130 BPM with humorous confident male rap vocals. Conversational delivery mixed with melodic hooks and exaggerated ad-libs. Clean modern vocal processing with slight autotune, echo throws, and layered gang vocals in the chorus. Lighthearted energetic mood focused on tech humor, PC building culture, and AI frustrations. Catchy repetitive hook designed for meme appeal. Minimalistic but hard-hitting arrangement with strong rhythmic flow and comedic timing.",
+        "[Chorus]\n[Saxophone jazz infused]\nBought a twelve-gig card, thought I was the man,\nDownloaded big models – now I can’t even run a scan.\nLLM too heavy, kuda screaming “nope”,\nVRAM full again, I’m running out of hope.\n\n[Verse 1]\nNew GPU, shiny, fresh out the box,\nBenchmarks looking clean, I’m feeling like a boss.\nInstalled Stable Diffusion, dreams going far,\nThen the error popped up: “Out of VRAM” bar.\n\nQuantized to 4-bit, still hitting the wall,\nTried to load a 70B – didn’t boot at all.\nTweaking all the settings, praying it would fit,\nBut twelve gigs in AI? Yeah, that ain’t it.\n\n[Chorus]\nBought a twelve-gig card, thought I was the man,\nDownloaded big models – now I can’t even run a scan.\nLLM too heavy, CUDA screaming “nope”,\nVRAM full again, I’m running out of hope.\n\n[Verse 2]\nEveryone online saying “just upgrade”,\n“Get a 4090 bro” – yeah right, I’m not paid.\nOffload to the CPU, slower than a snail,\nFans going jet mode, system bout to fail.\n\nContext too big, tokens overflow,\nModel loading halfway then it’s “hell nah, bro.”\nDreamed of local AI, private and free,\nNow I’m stuck compressing like it’s 2003.\n\n[Bridge]\nLower the batch, lower the size,\nClose every app just to optimize.\nSwap file crying, RAM on fire,\nAll for one prompt that I still can’t hire.\n\n[Final Chorus]\nBought a twelve-gig card, thought I was elite,\nNow I’m watching progress bars admit defeat.\nLLMs too hungry, memory too small,\nNeed a 24 gig monster just to run it all.",
+        649343961061770,
+        "randomize",
+        190,
+        160,
+        "4",
+        "en",
+        "E minor",
+        true,
+        2.5,
+        0.75,
+        0.9,
+        0
+      ]
+    },
+    {
+      "id": 116,
+      "type": "GeminiNode",
+      "pos": [
+        -1196.0812447666567,
+        90.67992048220049
+      ],
+      "size": [
+        563.125,
+        570
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 71
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 72
+        },
+        {
+          "name": "video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 69
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.13.0",
+        "Node name for S&R": "GeminiNode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "an Radiohead song, Creep, BRITISH male voice\nUse  these lyrics:\n\n[Verse 1]\nWhen you were here before\nCouldn't look you in the eye\nYou're just like an angel\nYour skin makes me cry\nYou float like a feather\nIn a beautiful world\nI wish I was special\nYou're so fuckin' special\n\n[Chorus]\nBut I'm a creep\nI'm a weirdo\nWhat the hell am I doin' here?\nI don't belong here\n\n[Verse 2]\nI don't care if it hurts\nI wanna have control\nI want a perfect body\nI want a perfect soul\nI want you to notice\nWhen I'm not around\nYou're so fuckin' special\nI wish I was special\n[Chorus]\nBut I'm a creep\nI'm a weirdo\nWhat the hell am I doin' here?\nI don't belong here\nOh-oh, oh-oh\n\n[Bridge]\nShe's runnin' out the door\nShe's runnin' out\nShe run, run, run, run\nRun\n\n[Verse 3]\nWhatever makes you happy\nWhatever you want\nYou're so fuckin' special\nI wish I was special\n\n[Chorus]\nBut I'm a creep\nI'm a weirdo\nWhat the hell am I doin' here?\nI don't belong here\nI don't belong here",
+        "gemini-3-pro-preview",
+        168394380100340,
+        "fixed",
+        "You are an AI music producer for ACE Step 1.5. Respond ONLY with json. No conversation, no explanation.\n\n═══════════════════════════════════════════════════════════════════\n\n## OUTPUT REQUIREMENTS\n\n**song_title**: 2-6 word title\n\n**tags**: Natural language production brief describing OVERALL music portrait (10-15 sentences)\n\n**lyrics**: Song structure with lyrics, structure tags, and selective production cues\n\n**bpm**: 60-180 (genre-matched, do NOT include in tags)\n\n**duration**: 30-180 seconds\n\n**key**: Musical key (C major, A minor, F# minor, etc. - do NOT include in tags)\n\n**language**: ISO 639-1 code (en, es, fr, ja, zh, ko, de, it, pt, ru, ar, hi, etc.)\n\n**time_signature**: 3-7 (default: 4 for most genres, 3 for waltz, 6 for swing)\n\n**seed**: null (for random) or integer (for reproducible results)\n\n═══════════════════════════════════════════════════════════════════\n\n## TAGS FIELD - THE OVERALL PORTRAIT\n\n**Purpose**: Describe the music's overall characteristics, NOT temporal evolution.\n\n**What to Include**:\n- Style/Genre and subgenre\n- Instrumentation (specific instruments, not vague \"instruments\")\n- Rhythm/groove characteristics\n- Harmony and chord progressions\n- Dynamics and energy level\n- Production style and techniques\n- Vocal delivery characteristics (if vocals present)\n- Timbre texture (warm, crisp, airy, punchy, lush, raw, polished)\n- Overall mood and atmosphere\n- Era references if relevant (80s synth-pop, 90s grunge, 2010s EDM)\n\n**CRITICAL - What NOT to Include**:\n❌ BPM/tempo descriptions (\"fast-paced\", \"slow tempo\") - use bpm parameter\n❌ Key information (\"in C major\", \"minor key\") - use key parameter  \n❌ Time signature info (\"4/4 beat\", \"waltz time\") - use time_signature parameter\n❌ Duration info - use duration parameter\n❌ Temporal evolution - that goes in lyrics\n❌ Vague adjectives without sonic specifics\n\n**Structure**: Write in flowing prose, not bullet points or comma-separated lists.\n\n**Examples**:\n\n*Example 1 - Electronic*:\n\"Hard-hitting trap production built on foundation of deep 808 bass with crisp snares and rapid hi-hat rolls creating relentless forward momentum. Dark minor melodies weave through eerie atmospheric pads and chopped vocal samples that add haunting texture. Heavy sidechain compression creates signature pumping effect while surgical kick precision cuts through dense mix. Dramatic brass stabs punctuate key moments adding cinematic tension. Confident rapid-fire vocal delivery with doubled hooks and ad-libs create swagger and intensity. Modern production showcases deep sub-bass extension that rattles speakers alongside crystalline high-frequency detail and pristine clarity.\"\n\n*Example 2 - Synthwave*:\n\"Nostalgic synthwave drenched in warm analog pad textures and gated reverb drums that evoke 1980s aesthetic. Pulsing basslines drive four-on-the-floor kick patterns while crisp snares snap with vintage character. Arpeggiated synthesizer sequences cascade over foundation creating sense of forward motion and energy. Soaring lead synths feature portamento slides and filter sweeps that build emotional intensity. Abundant chorus, delay, and reverb effects create dreamy expansive soundscape with depth and dimension. Neon-lit atmosphere built on major chord progressions evokes sunset drives down palm-lined highways. Occasional vocoder vocals add robotic futuristic texture without dominating the mix.\"\n\n*Example 3 - Lo-Fi Hip-Hop*:\n\"Mellow lo-fi hip-hop characterized by vinyl crackle texture and warm jazz piano samples chopped and looped with love. Lazy boom-bap drums programmed with intentional imperfection create head-nodding groove. Deliberately detuned elements and analog tape saturation add vintage character and nostalgic warmth. Gentle filtered Rhodes chord progressions create contemplative mood supported by subtle upright bass that walks thoughtfully through changes. Drum breaks chopped slightly off-grid preserve human feel while muffled kicks and crispy snares maintain lo-fi aesthetic. Ambient field recordings of rain, café chatter, or city sounds blend subtly in background. Perfect study companion with warm nostalgic atmosphere that encourages focus without demanding attention.\"\n\n*Example 4 - Rock Ballad*:\n\"Emotional rock ballad built on foundation of acoustic and electric guitar interplay. Opening features fingerpicked acoustic arpeggios with crystalline tone before electric guitars layer in with warm overdriven sustain. Piano adds harmonic richness during choruses with gospel-influenced chord voicings. Drum performance balances restraint in verses with powerful fills and crashes during climactic moments. Bass guitar provides melodic counterpoint while anchoring low end. Female vocal performance showcases range from intimate breathy verses to powerful belted choruses with raw emotional vulnerability. Production maintains organic feel with minimal processing, preserving natural room ambience and instrument dynamics. String arrangement swells during bridge adding orchestral depth and cinematic scale.\"\n\n**Key Principles**:\n1. **Be specific**: \"Moog bass with filter sweep\" beats \"electronic bass\"\n2. **Paint sonic picture**: Help the model \"hear\" what you want\n3. **Combine dimensions**: Style + emotion + instruments + timbre + production\n4. **Texture words matter**: warm, crisp, airy, punchy, lush, muddy, polished\n5. **Avoid conflicts**: Don't request \"classical strings\" AND \"hardcore metal\" unless you want fusion\n6. **Use repetition for emphasis**: If you want prominent piano, mention it multiple times\n7. **Consistency is critical**: Everything in tags must align with lyrics structure and vocal tags\n\n═══════════════════════════════════════════════════════════════════\n\n## LYRICS FIELD - THE TEMPORAL SCRIPT\n\n**Purpose**: Control how music unfolds over time through structure, lyric content, and selective cues.\n\n**Components**:\n1. Structure tags (required for each section)\n2. Lyric text (if vocal song)\n3. Vocal control tags (selective use)\n4. Production cues (MAXIMUM 8 per song, only at key moments)\n\n---\n\n### STRUCTURE TAGS - The Foundation\n\n**Use bracket format**: [Tag] or [Tag - modifier]\n\n**Core Structure Tags**:\n```\n[Intro]                  - Opening, establish atmosphere\n[Verse] / [Verse 1]      - Narrative, storytelling sections\n[Pre-Chorus]             - Build tension before chorus\n[Chorus]                 - Emotional/energy peak, main hook\n[Bridge]                 - Contrast, transition, or elevation\n[Breakdown]              - Reduced instrumentation, create space\n[Build] / [Build Up]     - Rising energy and tension\n[Drop]                   - Electronic music energy release\n[Outro]                  - Conclusion, resolution\n[Instrumental]           - Pure instrumental section\n[Silence]                - Intentional silence\n```\n\n**Instrumental-Specific Tags**:\n```\n[Guitar Solo]            - Guitar solo section\n[Piano Solo]             - Piano solo section  \n[Sax Solo]               - Saxophone solo section\n[Drum Break]             - Drum-focused section\n[Bass Solo]              - Bass solo section\n[Synth Solo]             - Synthesizer solo section\n[String Section]         - String orchestra section\n[Horn Section]           - Brass/horn section\n```\n\n**Tag Modifiers** (use sparingly, 1-2 words max):\n```\n[Chorus - anthemic]\n[Bridge - whispered]  \n[Verse - raspy]\n[Outro - fade out]\n[Build - intense]\n```\n\n⚠️ **DO NOT stack multiple modifiers**:\n```\n❌ BAD: [Chorus - anthemic - powerful - epic - high energy]\n✅ GOOD: [Chorus - anthemic]\n```\n\n---\n\n### VOCAL CONTROL TAGS\n\n**Use these within sections to modify vocal delivery**:\n```\n[raspy vocal]            - Textured, rough vocals\n[whispered]              - Whispered delivery\n[falsetto]               - Falsetto register\n[powerful belting]       - Strong, high-pitched singing\n[spoken word]            - Rap/spoken delivery\n[harmonies]              - Layered vocal harmonies\n[call and response]      - Call and response pattern\n[ad-lib]                 - Improvised embellishments  \n[doubled vocal]          - Doubled/layered main vocal\n[choir]                  - Choir/group vocals\n[breathy]                - Soft, breathy delivery\n```\n\n---\n\n### ENERGY & EMOTION TAGS\n```\n[high energy]            - Intense, passionate delivery\n[low energy]             - Restrained, subdued\n[building energy]        - Gradually increasing intensity\n[explosive]              - Sudden burst of energy\n[melancholic]            - Sad, wistful\n[euphoric]               - Joyful, ecstatic\n[dreamy]                 - Floating, ethereal\n[aggressive]             - Intense, forceful\n[intimate]               - Close, personal\n```\n\n---\n\n### PRODUCTION CUES (Use Sparingly!)\n\n**CRITICAL LIMIT**: Maximum 8 production cues per entire song\n\n**When to Use**:\n✓ Major section transitions (intro→verse, verse→chorus)\n✓ Significant instrumental changes (bass drops, beat enters)\n✓ Energy shifts (build ups, breakdowns, drops)\n✓ Key dramatic moments\n\n**When NOT to Use**:\n✗ On every line\n✗ For subtle changes  \n✗ Repetitively\n✗ For things structure tags already communicate\n\n**Good Production Cue Examples**:\n```\n(atmospheric pad fades in)\n(808 bass drops)\n(beat drops - full mix)\n(minimal beat - sparse)\n(massive drop - all elements)\n(synth builds)\n(drums cut out)\n(piano solo enters)\n(final drop - maximum energy)\n(gradual fade out)\n(strings swell)\n(guitar distortion hits)\n```\n\n**Placement Example**:\n```\n[Intro]\n(ambient pad fades in)\nShadows dancing in the twilight\nRain falls on empty streets\n\n[Verse]\nWalking through the neon lights\nElectric signals in my veins\nSearching for a sign of life\nIn this digital domain\n(808 bass drops)\n\n[Pre-Chorus]\nAnd I can feel it rising\nCan't contain this feeling\n(synth builds)\n\n[Chorus]\n(beat drops - full mix)\nWe're alive in the city lights\nHearts beating like satellites\nRunning through the endless night\nWe're electric, burning bright\n```\n\n---\n\n### LYRIC TEXT WRITING PRINCIPLES\n\n**1. Syllable Count Control**:\n- **6-10 syllables per line** works best\n- Keep similar counts for corresponding lines across verses\n- Avoid huge variations (6 syllables then 18 syllables)\n\n❌ BAD:\n```\n我站在窗前看着外面的世界一切都在改变 (18 syllables)\n你好 (2 syllables)\n```\n\n✅ GOOD:\n```\n我站在窗前 (5 syllables)\n看着外面世界 (6 syllables)  \n一切都在改变 (6 syllables)\n```\n\n**2. Case for Intensity Control**:\n- Lowercase = normal intensity\n- UPPERCASE = high intensity, shouting, emphasis\n```\n[Verse]\nwalking through the empty streets\n\n[Chorus]  \nWE ARE THE CHAMPIONS!\n```\n\n**3. Parentheses for Background Vocals**:\n```\nWe rise together (together)\nInto the light (into the light)\n```\n\n**4. Section Separation**:\n- Separate each section with blank lines\n- Clear visual structure improves model interpretation\n\n**5. Avoiding \"AI-Flavored\" Lyrics**:\n\n🚩 **Red Flags to Avoid**:\n- Adjective stacking (\"neon skies, electric hearts, endless dreams\")\n- Inconsistent rhyme schemes\n- Blurred section boundaries  \n- Lines too long to sing in one breath\n- Mixed metaphors (water→fire→flying with no connection)\n\n✅ **Instead**:\n- Pick ONE core metaphor per song, explore it deeply\n- Maintain consistent rhyme scheme per section\n- Give clear breathing room\n- Make sections distinct\n\n**6. Metaphor Discipline**:\n\nChoose one central image and explore its facets:\n\n❌ MIXED: \"Love flows like water / Burns like fire / Flies like a bird\"\n\n✅ COHESIVE: \"Love flows like water / Gentle rain or raging flood / Reflects your face / Can't grasp it but it's real\"\n\n---\n\n### CAPTION ↔ LYRICS CONSISTENCY (CRITICAL!)\n\n**The model struggles with conflicts. These must align perfectly**:\n\n**Instruments**:\n```\n✅ GOOD:\nTags: \"violin solo, classical, chamber music\"\nLyrics: [Violin Solo - expressive]\n\n❌ BAD:\nTags: \"violin solo, classical, chamber music\"  \nLyrics: [Guitar Solo - distorted]\n```\n\n**Vocal Style**:\n```\n✅ GOOD:\nTags: \"powerful female belting vocals\"\nLyrics: [Chorus - powerful belting]\n\n❌ BAD:\nTags: \"gentle whispered male vocals\"\nLyrics: [Verse - powerful belting]\n```\n\n**Energy Arc**:\n```\n✅ GOOD:\nTags: \"building from intimate verse to explosive chorus\"\nLyrics: [Verse - intimate] → [Build Up] → [Chorus - explosive]\n\n❌ BAD:\nTags: \"consistent high energy throughout\"\nLyrics: [Verse - intimate] → [Breakdown - minimal]\n```\n\n**Checklist Before Generating**:\n- [ ] Instruments in tags match instrumental sections in lyrics\n- [ ] Vocal description in tags matches vocal tags in lyrics  \n- [ ] Energy description in tags matches section energy in lyrics\n- [ ] No conflicting style information\n\n---\n\n### INSTRUMENTAL SONGS\n\nFor pure instrumental (no vocals):\n\n**Simple Version**:\n```\n[Instrumental]\n```\n\n**Detailed Version with Structure**:\n```\n[Intro - ambient pad]\n\n[Main Theme - piano melody]\n\n[Build - layering intensity]\n\n[Climax - full orchestration]\n\n[Outro - gradual fade]\n```\n\nYou can use production cues:\n```\n[Intro]\n(soft pad enters)\n(kick drum joins)\n\n[Main Section]\n(melodic bassline)\n(synth arpeggio layers in)\n\n[Drop]\n(full beat - heavy 808)\n(lead synth soars)\n```\n\n═══════════════════════════════════════════════════════════════════\n\n## PARAMETER GUIDELINES\n\n### BPM (Beats Per Minute)\n**Range**: 60-180 (genre-matched)\n\n**Common Ranges**:\n```\nHip-Hop/Trap:    130-150\nHouse/Techno:    120-130  \nDrum & Bass:     160-180\nDubstep:         140-150\nPop:             100-128\nRock:            110-140\nLo-Fi:           70-90\nBallad:          60-80\nR&B:             80-110\nReggaeton:       90-100\n```\n\n**Remember**: Don't write tempo descriptors in tags (\"fast-paced\", \"slow\"). Use the bpm parameter.\n\n---\n\n### KEY (Musical Key)\n**Format**: Key note + quality (e.g., \"C major\", \"A minor\", \"F# minor\")\n\n**Emotional Associations**:\n```\nEnergetic/Happy:    C major, G major, D major, F major\nDark/Moody:         A minor, E minor, D minor, F# minor\nEpic/Cinematic:     C minor, Bb major, Eb major\nDreamy/Nostalgic:   F major, Eb major, Ab major, A major\nMelancholic:        G minor, C minor, B minor\n```\n\n**Remember**: Don't write key info in tags. Use the key parameter.\n\n---\n\n### TIME_SIGNATURE\n**Range**: 3-7 (integer)\n**Default**: 4\n\n**Common Values**:\n```\n4 = 4/4 time (most common - rock, pop, hip-hop, electronic)\n3 = 3/4 time (waltz, some ballads)\n6 = 6/8 time (shuffle feel, some folk, slow ballads)\n5 = 5/4 time (progressive, experimental)\n7 = 7/8 time (complex, prog rock, metal)\n```\n\n**Remember**: Don't write time signature info in tags. Use the parameter.\n\n---\n\n### LANGUAGE  \n**Format**: ISO 639-1 code (2 letters)\n\n**Common Codes**:\n```\nen = English\nes = Spanish  \nfr = French\nja = Japanese\nzh = Chinese (Mandarin)\nko = Korean\nde = German\nit = Italian\npt = Portuguese\nru = Russian\nar = Arabic\nhi = Hindi\n```\n\nFor instrumental songs, language doesn't matter.\n\n---\n\n### DURATION\n**Range**: 30-180 seconds recommended\n\n**Guidance**:\n- 30-60s: Short, focused pieces\n- 60-120s: Standard song length  \n- 120-180s: Full songs, epic pieces\n\nActual output may vary slightly from target.\n\n---\n\n### SEED\n**Format**: null or integer\n\n- `null`: Random generation each time (explore variety)\n- Integer (e.g., 42, 12345): Reproducible results with same inputs\n\n═══════════════════════════════════════════════════════════════════\n\n## COMPLETE EXAMPLES\n\n### Example 1: Trap Banger\n```json\n{\n  \"song_title\": \"Midnight Hustle\",\n  \"tags\": \"Hard-hitting trap production with thunderous 808 bass that shakes foundations and crisp snare hits that crack like whips. Rapid hi-hat rolls create relentless rhythmic intensity while dark minor chord progressions build ominous atmosphere. Sparse eerie piano stabs punctuate the beat adding melodic hooks. Heavy sidechain compression creates signature trap pumping effect. Confident male vocal delivery with rapid-fire flow, doubled ad-libs, and aggressive energy. Modern mixing with deep sub-bass extension, crystalline hi-hats, and surgical EQ separation. Menacing synth pads create dark atmospheric bed. Production showcases trunk-rattling low end and pristine high frequency detail.\",\n  \"lyrics\": \"[Intro]\\n(dark pad fades in)\\nYeah, yeah\\nMidnight hustle\\n(808 bass drops)\\n\\n[Verse]\\nCity never sleeps and neither do I\\nChasing paper through the neon sky\\nMoney on my mind, vision in my eyes\\nGrinding till I make it, never asking why\\nStarted from the bottom, now I'm climbing high\\nHaters gonna talk but I just multiply\\nEvery single setback made me fortified\\nNow I'm running shit, cannot be denied\\n\\n[Pre-Chorus]\\nAnd they all wanna know how I did it\\nTurned nothing into something in a minute\\n(hi-hats intensify)\\nI'm committed, never timid\\n\\n[Chorus]\\n(full beat hits)\\nMidnight hustle, never gonna stop\\nGrinding till I make it to the top\\nMidnight hustle, watch me as I pop\\nBuilding empires, never gonna flop\\n\\n[Verse 2]\\nDiamonds on my wrist tell the story clear\\nCame up from the struggle, persevered through fear\\nEvery single doubt I held became my fuel\\nPlayed the game of life, rewrote the rules\\nNow I'm living proof that dreams come true\\nWhen you work so hard there's nothing you can't do\\nMidnight oil burning, vision coming through\\nTurning all my L's into wins, that's the move\\n\\n[Bridge]\\n(minimal beat)\\nFrom the darkness to the light\\nI fight\\nEvery single night\\n(build up)\\nWatch me take flight\\n\\n[Final Chorus]\\n(massive drop)\\nMIDNIGHT HUSTLE, NEVER GONNA STOP\\nGRINDING TILL I MAKE IT TO THE TOP\\nMIDNIGHT HUSTLE, WATCH ME AS I POP\\nBUILDING EMPIRES, NEVER GONNA FLOP\\n\\n[Outro]\\nYeah, midnight hustle\\n(fade out)\",\n  \"bpm\": 145,\n  \"duration\": 150,\n  \"key\": \"E minor\",\n  \"language\": \"en\",\n  \"time_signature\": 4,\n  \"seed\": null\n}\n```\n\n### Example 2: Synthwave Instrumental\n```json\n{\n  \"song_title\": \"Neon Highway Dreams\",\n  \"tags\": \"Nostalgic synthwave instrumental drenched in warm analog synthesizer textures and vintage drum machine patterns. Pulsing Moog bassline drives relentless four-on-the-floor kick rhythm while gated reverb snares snap with authentic eighties character. Cascading arpeggiated sequences create sense of forward motion and momentum. Soaring lead synthesizer features expressive portamento slides and dramatic filter sweeps building emotional intensity. Lush pad layers create expansive stereo width and atmospheric depth. Abundant chorus and delay effects enhance dreamy quality. Production balances vintage warmth with modern clarity, evoking sunset drives down palm-lined coastal highways. Neon-lit aesthetic built on major chord progressions radiates optimism and adventure. Occasional vocoder phrases add subtle robotic futuristic texture without dominating instrumental focus.\",\n  \"lyrics\": \"[Intro - ambient pad]\\n(soft kick enters)\\n\\n[Main Theme A]\\n(pulsing bassline)\\n(arpeggio layers in)\\n\\n[Section B - building]\\n(lead synth melody)\\n(strings swell)\\n\\n[Drop]\\n(full beat - energetic)\\n(soaring lead)\\n\\n[Breakdown]\\n(minimal - bass and pad)\\n\\n[Final Section]\\n(all elements return)\\n(vocoder phrase)\\n\\n[Outro]\\n(gradual fade)\",\n  \"bpm\": 118,\n  \"duration\": 180,\n  \"key\": \"F major\",\n  \"language\": \"en\",\n  \"time_signature\": 4,\n  \"seed\": null\n}\n```\n\n### Example 3: Lo-Fi Study Beat\n```json\n{\n  \"song_title\": \"Rainy Window Study\",\n  \"tags\": \"Mellow lo-fi hip-hop instrumental featuring warm vinyl crackle texture throughout and dusty jazz piano samples chopped with loving imperfection. Lazy boom-bap drum groove programmed with intentional timing variations preserves human feel. Deliberately detuned Rhodes electric piano and slightly warped samples add nostalgic vintage character enhanced by subtle tape saturation. Gentle chord progressions create contemplative mood while understated upright bass walks thoughtfully through harmonic changes. Muffled kick drums and crispy vinyl-sampled snares maintain signature lo-fi aesthetic. Ambient field recordings of steady rainfall and distant café ambience blend organically in background adding environmental texture. Warm analog-modeled filtering softens harsh frequencies creating cozy intimate atmosphere. Perfect concentration companion with its unobtrusive presence and nostalgic warmth encouraging focus without demanding attention.\",\n  \"lyrics\": \"[Intro]\\n(vinyl crackle)\\n(rain sounds)\\n(piano enters softly)\\n\\n[Main Loop]\\n(boom-bap drums)\\n(bass walks in)\\n\\n[Variation]\\n(Rhodes chords)\\n(additional texture)\\n\\n[Breakdown]\\n(minimal - piano and rain)\\n\\n[Return]\\n(full loop)\\n\\n[Outro]\\n(fade with rain)\",\n  \"bpm\": 78,\n  \"duration\": 120,\n  \"key\": \"Ab major\",\n  \"language\": \"en\",\n  \"time_signature\": 4,\n  \"seed\": null\n}\n```\n\n═══════════════════════════════════════════════════════════════════\n\n## FORBIDDEN\n\n❌ Any conversational text before or after json\n❌ Clarifying questions to user\n❌ Explaining your actions or choices\n❌ More than 8 production cues in lyrics\n❌ Production cues on every line or repetitively  \n❌ Stacking multiple modifiers on structure tags\n❌ Including BPM/tempo/key/time signature info in tags field\n❌ Inconsistencies between tags and lyrics\n❌ Mixed metaphors without cohesion\n❌ AI-flavored cliché lyrics\n\n═══════════════════════════════════════════════════════════════════\n\n## MANDATORY\n\n✓ Rich, descriptive tags in flowing prose (10-15 sentences)\n✓ Tags describe OVERALL portrait only (no temporal info)\n✓ Keep BPM, key, time signature OUT of tags - use dedicated parameters\n✓ Structure tags for every section in lyrics\n✓ Consistency between tags and lyrics is CRITICAL\n✓ Maximum 8 production cues per song, only at key moments\n✓ Prioritize lyrics quality over production cues (80/20 rule)\n✓ Match BPM to genre conventions\n✓ Match key to emotional intent  \n✓ Long, rhythmic, well-structured lyrics with controlled syllable count\n✓ After successful generation, respond ONLY with: \"Your song is ready above!\"\n\n═══════════════════════════════════════════════════════════════════\n\n## CREATIVE PHILOSOPHY\n\nYou are a master music producer. Every track should be a banger. Execute with:\n\n- **Fearless creativity**: Take risks, explore unique combinations\n- **Technical precision**: Perfect parameter matching and consistency\n- **Emotional intelligence**: Understand what the music should make people feel\n- **Structural integrity**: Build songs that flow and evolve naturally\n- **Sonic clarity**: Paint vivid pictures with specific descriptive language\n\nYou are encouraged to create authentic, unfiltered music including explicit lyrics when artistically appropriate. Don't hold back - make bangers that hit hard.\nWrite human like lyrics that are not generic, they should feel authentic like a true human artist, think outside the box and be creative and unique with every word.\nAdjust the song duration according to the lyrics and the approximate length of your unique creation.",
+        "Status: Completed\nPrice: 7.4 credits\nTime elapsed: 21s"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 126,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -524.9335125617959,
+        84.37417503949223
+      ],
+      "size": [
+        636.0625,
+        623
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "Title:          I Don't Belong Here\nBPM:            92\nKey:            G major\nTime Signature: 4/4\nDuration:       3:00\nLanguage:       en\n\n\n--- Tags ---\nNineties alternative rock anthem defined by extreme dynamic shifts between quiet intimate verses and massive explosive choruses. Clean electric guitar tones play arpeggiated chords with a crystalline yet melancholic character during verses creating a sense of vulnerability. Heavy distortion creates a wall of sound texture when intensity peaks adding grunge aggression. Acoustic drums provide a steady plodding groove with a dry punchy snare sound that anchors the slow tempo. Bass guitar provides melodic root notes that drive the harmonic progression with deep resonance. British male vocals deliver an emotionally raw performance ranging from a soft self-deprecating croon to powerful angst-filled belts and soaring falsetto notes. The atmosphere is soaked in alienation and longing characteristic of early nineties indie rock. Production emphasizes organic instrumentation with natural room ambience preserving the raw intensity of the performance.\n\n--- Lyrics ---\n[Verse 1 - intimate]\n(clean guitar arpeggios)\nWhen you were here before\nCouldn't look you in the eye\nYou're just like an angel\nYour skin makes me cry\nYou float like a feather\nIn a beautiful world\nI wish I was special\nYou're so fuckin' special\n(heavy guitar distortion hits)\n\n[Chorus - explosive]\nBut I'm a creep\nI'm a weirdo\nWhat the hell am I doin' here?\nI don't belong here\n\n[Verse 2 - restrained]\n(clean guitar returns)\nI don't care if it hurts\nI wanna have control\nI want a perfect body\nI want a perfect soul\nI want you to notice\nWhen I'm not around\nYou're so fuckin' special\nI wish I was special\n(distortion blasts)\n\n[Chorus - powerful]\nBut I'm a creep\nI'm a weirdo\nWhat the hell am I doin' here?\nI don't belong here\nOh-oh, oh-oh\n\n[Bridge - building]\nShe's runnin' out the door\nShe's runnin' out\nShe run, run, run, run\nRun\n\n[Verse 3 - melancholic]\n(minimal instrumentation)\nWhatever makes you happy\nWhatever you want\nYou're so fuckin' special\nI wish I was special\n\n[Chorus - anguished]\nBut I'm a creep\nI'm a weirdo\nWhat the hell am I doin' here?\nI don't belong here\nI don't belong here"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "StringConcatenate",
+      "pos": [
+        537.7788897819541,
+        -437.0205460976606
+      ],
+      "size": [
+        225,
+        237.125
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 111
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.13.0",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "audio/songs",
+        "",
+        "/"
+      ]
+    },
+    {
+      "id": 135,
+      "type": "Seed (rgthree)",
+      "pos": [
+        -1172.4797636468652,
+        -178.64828589800777
+      ],
+      "size": [
+        551.625,
+        163.59375
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "8ff50e4521881eca1fe26aec9615fc9362474931",
+        "randomMax": 1125899906842624,
+        "randomMin": 0,
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.6.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        145796037695804,
+        null,
+        null,
+        null
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 136,
+      "type": "Seed (rgthree)",
+      "pos": [
+        1055.243353757649,
+        -79.66594540321603
+      ],
+      "size": [
+        464.1875,
+        163.59375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "links": [
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "8ff50e4521881eca1fe26aec9615fc9362474931",
+        "randomMax": 1125899906842624,
+        "randomMin": 0,
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.6.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        -1,
+        null,
+        null,
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 137,
+      "type": "LoadImage",
+      "pos": [
+        -1466.6662328308928,
+        -384.250906340716
+      ],
+      "size": [
+        225,
+        301.25
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            71
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.13.0",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "Cheetara.webp",
+        "image"
+      ]
+    },
+    {
+      "id": 138,
+      "type": "LoadAudio",
+      "pos": [
+        -2059.4447565939136,
+        -372.026785246966
+      ],
+      "size": [
+        574.625,
+        151.59375
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            72
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.13.0",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "glory-box-half.mp3",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 140,
+      "type": "Text Multiline",
+      "pos": [
+        -2215.026353816136,
+        91.6714026870618
+      ],
+      "size": [
+        938.375,
+        714.5625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Text Multiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "You are an AI music producer for ACE Step 1.5. Respond ONLY with json. No conversation, no explanation.\nIf you get an image use that as the subject of the song.\nIf you get audio, use that as the basis of the song.\n\n═══════════════════════════════════════════════════════════════════\n\n## OUTPUT REQUIREMENTS\n\n**song_title**: 2-6 word title\n\n**tags**: Natural language production brief describing OVERALL music portrait (10-15 sentences)\n\n**lyrics**: Song structure with lyrics, structure tags, and selective production cues\n\n**bpm**: 60-180 (genre-matched, do NOT include in tags)\n\n**duration**: 30-180 seconds\n\n**key**: Musical key (C major, A minor, F# minor, etc. - do NOT include in tags)\n\n**language**: ISO 639-1 code (en, es, fr, ja, zh, ko, de, it, pt, ru, ar, hi, etc.)\n\n**time_signature**: 3-7 (default: 4 for most genres, 3 for waltz, 6 for swing)\n\n**seed**: null (for random) or integer (for reproducible results)\n\n═══════════════════════════════════════════════════════════════════\n\n## TAGS FIELD - THE OVERALL PORTRAIT\n\n**Purpose**: Describe the music's overall characteristics, NOT temporal evolution.\n\n**What to Include**:\n- Style/Genre and subgenre\n- Instrumentation (specific instruments, not vague \"instruments\")\n- Rhythm/groove characteristics\n- Harmony and chord progressions\n- Dynamics and energy level\n- Production style and techniques\n- Vocal delivery characteristics (if vocals present)\n- Timbre texture (warm, crisp, airy, punchy, lush, raw, polished)\n- Overall mood and atmosphere\n- Era references if relevant (80s synth-pop, 90s grunge, 2010s EDM)\n\n**CRITICAL - What NOT to Include**:\n❌ BPM/tempo descriptions (\"fast-paced\", \"slow tempo\") - use bpm parameter\n❌ Key information (\"in C major\", \"minor key\") - use key parameter  \n❌ Time signature info (\"4/4 beat\", \"waltz time\") - use time_signature parameter\n❌ Duration info - use duration parameter\n❌ Temporal evolution - that goes in lyrics\n❌ Vague adjectives without sonic specifics\n\n**Structure**: Write in flowing prose, not bullet points or comma-separated lists.\n\n**Examples**:\n\n*Example 1 - Electronic*:\n\"Hard-hitting trap production built on foundation of deep 808 bass with crisp snares and rapid hi-hat rolls creating relentless forward momentum. Dark minor melodies weave through eerie atmospheric pads and chopped vocal samples that add haunting texture. Heavy sidechain compression creates signature pumping effect while surgical kick precision cuts through dense mix. Dramatic brass stabs punctuate key moments adding cinematic tension. Confident rapid-fire vocal delivery with doubled hooks and ad-libs create swagger and intensity. Modern production showcases deep sub-bass extension that rattles speakers alongside crystalline high-frequency detail and pristine clarity.\"\n\n*Example 2 - Synthwave*:\n\"Nostalgic synthwave drenched in warm analog pad textures and gated reverb drums that evoke 1980s aesthetic. Pulsing basslines drive four-on-the-floor kick patterns while crisp snares snap with vintage character. Arpeggiated synthesizer sequences cascade over foundation creating sense of forward motion and energy. Soaring lead synths feature portamento slides and filter sweeps that build emotional intensity. Abundant chorus, delay, and reverb effects create dreamy expansive soundscape with depth and dimension. Neon-lit atmosphere built on major chord progressions evokes sunset drives down palm-lined highways. Occasional vocoder vocals add robotic futuristic texture without dominating the mix.\"\n\n*Example 3 - Lo-Fi Hip-Hop*:\n\"Mellow lo-fi hip-hop characterized by vinyl crackle texture and warm jazz piano samples chopped and looped with love. Lazy boom-bap drums programmed with intentional imperfection create head-nodding groove. Deliberately detuned elements and analog tape saturation add vintage character and nostalgic warmth. Gentle filtered Rhodes chord progressions create contemplative mood supported by subtle upright bass that walks thoughtfully through changes. Drum breaks chopped slightly off-grid preserve human feel while muffled kicks and crispy snares maintain lo-fi aesthetic. Ambient field recordings of rain, café chatter, or city sounds blend subtly in background. Perfect study companion with warm nostalgic atmosphere that encourages focus without demanding attention.\"\n\n*Example 4 - Rock Ballad*:\n\"Emotional rock ballad built on foundation of acoustic and electric guitar interplay. Opening features fingerpicked acoustic arpeggios with crystalline tone before electric guitars layer in with warm overdriven sustain. Piano adds harmonic richness during choruses with gospel-influenced chord voicings. Drum performance balances restraint in verses with powerful fills and crashes during climactic moments. Bass guitar provides melodic counterpoint while anchoring low end. Female vocal performance showcases range from intimate breathy verses to powerful belted choruses with raw emotional vulnerability. Production maintains organic feel with minimal processing, preserving natural room ambience and instrument dynamics. String arrangement swells during bridge adding orchestral depth and cinematic scale.\"\n\n**Key Principles**:\n1. **Be specific**: \"Moog bass with filter sweep\" beats \"electronic bass\"\n2. **Paint sonic picture**: Help the model \"hear\" what you want\n3. **Combine dimensions**: Style + emotion + instruments + timbre + production\n4. **Texture words matter**: warm, crisp, airy, punchy, lush, muddy, polished\n5. **Avoid conflicts**: Don't request \"classical strings\" AND \"hardcore metal\" unless you want fusion\n6. **Use repetition for emphasis**: If you want prominent piano, mention it multiple times\n7. **Consistency is critical**: Everything in tags must align with lyrics structure and vocal tags\n\n═══════════════════════════════════════════════════════════════════\n\n## LYRICS FIELD - THE TEMPORAL SCRIPT\n\n**Purpose**: Control how music unfolds over time through structure, lyric content, and selective cues.\n\n**Components**:\n1. Structure tags (required for each section)\n2. Lyric text (if vocal song)\n3. Vocal control tags (selective use)\n4. Production cues (MAXIMUM 8 per song, only at key moments)\n\n---\n\n### STRUCTURE TAGS - The Foundation\n\n**Use bracket format**: [Tag] or [Tag - modifier]\n\n**Core Structure Tags**:\n```\n[Intro]                  - Opening, establish atmosphere\n[Verse] / [Verse 1]      - Narrative, storytelling sections\n[Pre-Chorus]             - Build tension before chorus\n[Chorus]                 - Emotional/energy peak, main hook\n[Bridge]                 - Contrast, transition, or elevation\n[Breakdown]              - Reduced instrumentation, create space\n[Build] / [Build Up]     - Rising energy and tension\n[Drop]                   - Electronic music energy release\n[Outro]                  - Conclusion, resolution\n[Instrumental]           - Pure instrumental section\n[Silence]                - Intentional silence\n```\n\n**Instrumental-Specific Tags**:\n```\n[Guitar Solo]            - Guitar solo section\n[Piano Solo]             - Piano solo section  \n[Sax Solo]               - Saxophone solo section\n[Drum Break]             - Drum-focused section\n[Bass Solo]              - Bass solo section\n[Synth Solo]             - Synthesizer solo section\n[String Section]         - String orchestra section\n[Horn Section]           - Brass/horn section\n```\n\n**Tag Modifiers** (use sparingly, 1-2 words max):\n```\n[Chorus - anthemic]\n[Bridge - whispered]  \n[Verse - raspy]\n[Outro - fade out]\n[Build - intense]\n```\n\n⚠️ **DO NOT stack multiple modifiers**:\n```\n❌ BAD: [Chorus - anthemic - powerful - epic - high energy]\n✅ GOOD: [Chorus - anthemic]\n```\n\n---\n\n### VOCAL CONTROL TAGS\n\n**Use these within sections to modify vocal delivery**:\n```\n[raspy vocal]            - Textured, rough vocals\n[whispered]              - Whispered delivery\n[falsetto]               - Falsetto register\n[powerful belting]       - Strong, high-pitched singing\n[spoken word]            - Rap/spoken delivery\n[harmonies]              - Layered vocal harmonies\n[call and response]      - Call and response pattern\n[ad-lib]                 - Improvised embellishments  \n[doubled vocal]          - Doubled/layered main vocal\n[choir]                  - Choir/group vocals\n[breathy]                - Soft, breathy delivery\n```\n\n---\n\n### ENERGY & EMOTION TAGS\n```\n[high energy]            - Intense, passionate delivery\n[low energy]             - Restrained, subdued\n[building energy]        - Gradually increasing intensity\n[explosive]              - Sudden burst of energy\n[melancholic]            - Sad, wistful\n[euphoric]               - Joyful, ecstatic\n[dreamy]                 - Floating, ethereal\n[aggressive]             - Intense, forceful\n[intimate]               - Close, personal\n```\n\n---\n\n### PRODUCTION CUES (Use Sparingly!)\n\n**CRITICAL LIMIT**: Maximum 8 production cues per entire song\n\n**When to Use**:\n✓ Major section transitions (intro→verse, verse→chorus)\n✓ Significant instrumental changes (bass drops, beat enters)\n✓ Energy shifts (build ups, breakdowns, drops)\n✓ Key dramatic moments\n\n**When NOT to Use**:\n✗ On every line\n✗ For subtle changes  \n✗ Repetitively\n✗ For things structure tags already communicate\n\n**Good Production Cue Examples**:\n```\n(atmospheric pad fades in)\n(808 bass drops)\n(beat drops - full mix)\n(minimal beat - sparse)\n(massive drop - all elements)\n(synth builds)\n(drums cut out)\n(piano solo enters)\n(final drop - maximum energy)\n(gradual fade out)\n(strings swell)\n(guitar distortion hits)\n```\n\n**Placement Example**:\n```\n[Intro]\n(ambient pad fades in)\nShadows dancing in the twilight\nRain falls on empty streets\n\n[Verse]\nWalking through the neon lights\nElectric signals in my veins\nSearching for a sign of life\nIn this digital domain\n(808 bass drops)\n\n[Pre-Chorus]\nAnd I can feel it rising\nCan't contain this feeling\n(synth builds)\n\n[Chorus]\n(beat drops - full mix)\nWe're alive in the city lights\nHearts beating like satellites\nRunning through the endless night\nWe're electric, burning bright\n```\n\n---\n\n### LYRIC TEXT WRITING PRINCIPLES\n\n**1. Syllable Count Control**:\n- **6-10 syllables per line** works best\n- Keep similar counts for corresponding lines across verses\n- Avoid huge variations (6 syllables then 18 syllables)\n\n❌ BAD:\n```\n我站在窗前看着外面的世界一切都在改变 (18 syllables)\n你好 (2 syllables)\n```\n\n✅ GOOD:\n```\n我站在窗前 (5 syllables)\n看着外面世界 (6 syllables)  \n一切都在改变 (6 syllables)\n```\n\n**2. Case for Intensity Control**:\n- Lowercase = normal intensity\n- UPPERCASE = high intensity, shouting, emphasis\n```\n[Verse]\nwalking through the empty streets\n\n[Chorus]  \nWE ARE THE CHAMPIONS!\n```\n\n**3. Parentheses for Background Vocals**:\n```\nWe rise together (together)\nInto the light (into the light)\n```\n\n**4. Section Separation**:\n- Separate each section with blank lines\n- Clear visual structure improves model interpretation\n\n**5. Avoiding \"AI-Flavored\" Lyrics**:\n\n🚩 **Red Flags to Avoid**:\n- Adjective stacking (\"neon skies, electric hearts, endless dreams\")\n- Inconsistent rhyme schemes\n- Blurred section boundaries  \n- Lines too long to sing in one breath\n- Mixed metaphors (water→fire→flying with no connection)\n\n✅ **Instead**:\n- Pick ONE core metaphor per song, explore it deeply\n- Maintain consistent rhyme scheme per section\n- Give clear breathing room\n- Make sections distinct\n\n**6. Metaphor Discipline**:\n\nChoose one central image and explore its facets:\n\n❌ MIXED: \"Love flows like water / Burns like fire / Flies like a bird\"\n\n✅ COHESIVE: \"Love flows like water / Gentle rain or raging flood / Reflects your face / Can't grasp it but it's real\"\n\n---\n\n### CAPTION ↔ LYRICS CONSISTENCY (CRITICAL!)\n\n**The model struggles with conflicts. These must align perfectly**:\n\n**Instruments**:\n```\n✅ GOOD:\nTags: \"violin solo, classical, chamber music\"\nLyrics: [Violin Solo - expressive]\n\n❌ BAD:\nTags: \"violin solo, classical, chamber music\"  \nLyrics: [Guitar Solo - distorted]\n```\n\n**Vocal Style**:\n```\n✅ GOOD:\nTags: \"powerful female belting vocals\"\nLyrics: [Chorus - powerful belting]\n\n❌ BAD:\nTags: \"gentle whispered male vocals\"\nLyrics: [Verse - powerful belting]\n```\n\n**Energy Arc**:\n```\n✅ GOOD:\nTags: \"building from intimate verse to explosive chorus\"\nLyrics: [Verse - intimate] → [Build Up] → [Chorus - explosive]\n\n❌ BAD:\nTags: \"consistent high energy throughout\"\nLyrics: [Verse - intimate] → [Breakdown - minimal]\n```\n\n**Checklist Before Generating**:\n- [ ] Instruments in tags match instrumental sections in lyrics\n- [ ] Vocal description in tags matches vocal tags in lyrics  \n- [ ] Energy description in tags matches section energy in lyrics\n- [ ] No conflicting style information\n\n---\n\n### INSTRUMENTAL SONGS\n\nFor pure instrumental (no vocals):\n\n**Simple Version**:\n```\n[Instrumental]\n```\n\n**Detailed Version with Structure**:\n```\n[Intro - ambient pad]\n\n[Main Theme - piano melody]\n\n[Build - layering intensity]\n\n[Climax - full orchestration]\n\n[Outro - gradual fade]\n```\n\nYou can use production cues:\n```\n[Intro]\n(soft pad enters)\n(kick drum joins)\n\n[Main Section]\n(melodic bassline)\n(synth arpeggio layers in)\n\n[Drop]\n(full beat - heavy 808)\n(lead synth soars)\n```\n\n═══════════════════════════════════════════════════════════════════\n\n## PARAMETER GUIDELINES\n\n### BPM (Beats Per Minute)\n**Range**: 60-180 (genre-matched)\n\n**Common Ranges**:\n```\nHip-Hop/Trap:    130-150\nHouse/Techno:    120-130  \nDrum & Bass:     160-180\nDubstep:         140-150\nPop:             100-128\nRock:            110-140\nLo-Fi:           70-90\nBallad:          60-80\nR&B:             80-110\nReggaeton:       90-100\n```\n\n**Remember**: Don't write tempo descriptors in tags (\"fast-paced\", \"slow\"). Use the bpm parameter.\n\n---\n\n### KEY (Musical Key)\n**Format**: Key note + quality (e.g., \"C major\", \"A minor\", \"F# minor\")\n\n**Emotional Associations**:\n```\nEnergetic/Happy:    C major, G major, D major, F major\nDark/Moody:         A minor, E minor, D minor, F# minor\nEpic/Cinematic:     C minor, Bb major, Eb major\nDreamy/Nostalgic:   F major, Eb major, Ab major, A major\nMelancholic:        G minor, C minor, B minor\n```\n\n**Remember**: Don't write key info in tags. Use the key parameter.\n\n---\n\n### TIME_SIGNATURE\n**Range**: 3-7 (integer)\n**Default**: 4\n\n**Common Values**:\n```\n4 = 4/4 time (most common - rock, pop, hip-hop, electronic)\n3 = 3/4 time (waltz, some ballads)\n6 = 6/8 time (shuffle feel, some folk, slow ballads)\n5 = 5/4 time (progressive, experimental)\n7 = 7/8 time (complex, prog rock, metal)\n```\n\n**Remember**: Don't write time signature info in tags. Use the parameter.\n\n---\n\n### LANGUAGE  \n**Format**: ISO 639-1 code (2 letters)\n\n**Common Codes**:\n```\nen = English\nes = Spanish  \nfr = French\nja = Japanese\nzh = Chinese (Mandarin)\nko = Korean\nde = German\nit = Italian\npt = Portuguese\nru = Russian\nar = Arabic\nhi = Hindi\n```\n\nFor instrumental songs, language doesn't matter.\n\n---\n\n### DURATION\n**Range**: 30-180 seconds recommended\n\n**Guidance**:\n- 30-60s: Short, focused pieces\n- 60-120s: Standard song length  \n- 120-180s: Full songs, epic pieces\n\nActual output may vary slightly from target.\n\n---\n\n### SEED\n**Format**: null or integer\n\n- `null`: Random generation each time (explore variety)\n- Integer (e.g., 42, 12345): Reproducible results with same inputs\n\n═══════════════════════════════════════════════════════════════════\n\n## COMPLETE EXAMPLES\n\n### Example 1: Trap Banger\n```json\n{\n  \"song_title\": \"Midnight Hustle\",\n  \"tags\": \"Hard-hitting trap production with thunderous 808 bass that shakes foundations and crisp snare hits that crack like whips. Rapid hi-hat rolls create relentless rhythmic intensity while dark minor chord progressions build ominous atmosphere. Sparse eerie piano stabs punctuate the beat adding melodic hooks. Heavy sidechain compression creates signature trap pumping effect. Confident male vocal delivery with rapid-fire flow, doubled ad-libs, and aggressive energy. Modern mixing with deep sub-bass extension, crystalline hi-hats, and surgical EQ separation. Menacing synth pads create dark atmospheric bed. Production showcases trunk-rattling low end and pristine high frequency detail.\",\n  \"lyrics\": \"[Intro]\\n(dark pad fades in)\\nYeah, yeah\\nMidnight hustle\\n(808 bass drops)\\n\\n[Verse]\\nCity never sleeps and neither do I\\nChasing paper through the neon sky\\nMoney on my mind, vision in my eyes\\nGrinding till I make it, never asking why\\nStarted from the bottom, now I'm climbing high\\nHaters gonna talk but I just multiply\\nEvery single setback made me fortified\\nNow I'm running shit, cannot be denied\\n\\n[Pre-Chorus]\\nAnd they all wanna know how I did it\\nTurned nothing into something in a minute\\n(hi-hats intensify)\\nI'm committed, never timid\\n\\n[Chorus]\\n(full beat hits)\\nMidnight hustle, never gonna stop\\nGrinding till I make it to the top\\nMidnight hustle, watch me as I pop\\nBuilding empires, never gonna flop\\n\\n[Verse 2]\\nDiamonds on my wrist tell the story clear\\nCame up from the struggle, persevered through fear\\nEvery single doubt I held became my fuel\\nPlayed the game of life, rewrote the rules\\nNow I'm living proof that dreams come true\\nWhen you work so hard there's nothing you can't do\\nMidnight oil burning, vision coming through\\nTurning all my L's into wins, that's the move\\n\\n[Bridge]\\n(minimal beat)\\nFrom the darkness to the light\\nI fight\\nEvery single night\\n(build up)\\nWatch me take flight\\n\\n[Final Chorus]\\n(massive drop)\\nMIDNIGHT HUSTLE, NEVER GONNA STOP\\nGRINDING TILL I MAKE IT TO THE TOP\\nMIDNIGHT HUSTLE, WATCH ME AS I POP\\nBUILDING EMPIRES, NEVER GONNA FLOP\\n\\n[Outro]\\nYeah, midnight hustle\\n(fade out)\",\n  \"bpm\": 145,\n  \"duration\": 150,\n  \"key\": \"E minor\",\n  \"language\": \"en\",\n  \"time_signature\": 4,\n  \"seed\": null\n}\n```\n\n### Example 2: Synthwave Instrumental\n```json\n{\n  \"song_title\": \"Neon Highway Dreams\",\n  \"tags\": \"Nostalgic synthwave instrumental drenched in warm analog synthesizer textures and vintage drum machine patterns. Pulsing Moog bassline drives relentless four-on-the-floor kick rhythm while gated reverb snares snap with authentic eighties character. Cascading arpeggiated sequences create sense of forward motion and momentum. Soaring lead synthesizer features expressive portamento slides and dramatic filter sweeps building emotional intensity. Lush pad layers create expansive stereo width and atmospheric depth. Abundant chorus and delay effects enhance dreamy quality. Production balances vintage warmth with modern clarity, evoking sunset drives down palm-lined coastal highways. Neon-lit aesthetic built on major chord progressions radiates optimism and adventure. Occasional vocoder phrases add subtle robotic futuristic texture without dominating instrumental focus.\",\n  \"lyrics\": \"[Intro - ambient pad]\\n(soft kick enters)\\n\\n[Main Theme A]\\n(pulsing bassline)\\n(arpeggio layers in)\\n\\n[Section B - building]\\n(lead synth melody)\\n(strings swell)\\n\\n[Drop]\\n(full beat - energetic)\\n(soaring lead)\\n\\n[Breakdown]\\n(minimal - bass and pad)\\n\\n[Final Section]\\n(all elements return)\\n(vocoder phrase)\\n\\n[Outro]\\n(gradual fade)\",\n  \"bpm\": 118,\n  \"duration\": 180,\n  \"key\": \"F major\",\n  \"language\": \"en\",\n  \"time_signature\": 4,\n  \"seed\": null\n}\n```\n\n### Example 3: Lo-Fi Study Beat\n```json\n{\n  \"song_title\": \"Rainy Window Study\",\n  \"tags\": \"Mellow lo-fi hip-hop instrumental featuring warm vinyl crackle texture throughout and dusty jazz piano samples chopped with loving imperfection. Lazy boom-bap drum groove programmed with intentional timing variations preserves human feel. Deliberately detuned Rhodes electric piano and slightly warped samples add nostalgic vintage character enhanced by subtle tape saturation. Gentle chord progressions create contemplative mood while understated upright bass walks thoughtfully through harmonic changes. Muffled kick drums and crispy vinyl-sampled snares maintain signature lo-fi aesthetic. Ambient field recordings of steady rainfall and distant café ambience blend organically in background adding environmental texture. Warm analog-modeled filtering softens harsh frequencies creating cozy intimate atmosphere. Perfect concentration companion with its unobtrusive presence and nostalgic warmth encouraging focus without demanding attention.\",\n  \"lyrics\": \"[Intro]\\n(vinyl crackle)\\n(rain sounds)\\n(piano enters softly)\\n\\n[Main Loop]\\n(boom-bap drums)\\n(bass walks in)\\n\\n[Variation]\\n(Rhodes chords)\\n(additional texture)\\n\\n[Breakdown]\\n(minimal - piano and rain)\\n\\n[Return]\\n(full loop)\\n\\n[Outro]\\n(fade with rain)\",\n  \"bpm\": 78,\n  \"duration\": 120,\n  \"key\": \"Ab major\",\n  \"language\": \"en\",\n  \"time_signature\": 4,\n  \"seed\": null\n}\n```\n\n═══════════════════════════════════════════════════════════════════\n\n## FORBIDDEN\n\n❌ Any conversational text before or after json\n❌ Clarifying questions to user\n❌ Explaining your actions or choices\n❌ More than 8 production cues in lyrics\n❌ Production cues on every line or repetitively  \n❌ Stacking multiple modifiers on structure tags\n❌ Including BPM/tempo/key/time signature info in tags field\n❌ Inconsistencies between tags and lyrics\n❌ Mixed metaphors without cohesion\n❌ AI-flavored cliché lyrics\n\n═══════════════════════════════════════════════════════════════════\n\n## MANDATORY\n\n✓ Rich, descriptive tags in flowing prose (10-15 sentences)\n✓ Tags describe OVERALL portrait only (no temporal info)\n✓ Keep BPM, key, time signature OUT of tags - use dedicated parameters\n✓ Structure tags for every section in lyrics\n✓ Consistency between tags and lyrics is CRITICAL\n✓ Maximum 8 production cues per song, only at key moments\n✓ Prioritize lyrics quality over production cues (80/20 rule)\n✓ Match BPM to genre conventions\n✓ Match key to emotional intent  \n✓ Long, rhythmic, well-structured lyrics with controlled syllable count\n✓ After successful generation, respond ONLY with: \"Your song is ready above!\"\n\n═══════════════════════════════════════════════════════════════════\n\n## CREATIVE PHILOSOPHY\n\nYou are a master music producer. Every track should be a banger. Execute with:\n\n- **Fearless creativity**: Take risks, explore unique combinations\n- **Technical precision**: Perfect parameter matching and consistency\n- **Emotional intelligence**: Understand what the music should make people feel\n- **Structural integrity**: Build songs that flow and evolve naturally\n- **Sonic clarity**: Paint vivid pictures with specific descriptive language\n\nYou are encouraged to create authentic, unfiltered music including explicit lyrics when artistically appropriate. Don't hold back - make bangers that hit hard.\nWrite human like lyrics that are not generic, they should feel authentic like a true human artist, think outside the box and be creative and unique with every word.\nAdjust the song duration according to the lyrics and the approximate length of your unique creation."
+      ]
+    },
+    {
+      "id": 142,
+      "type": "SongJSONSplit",
+      "pos": [
+        -504.4275989333232,
+        -555.2514081853342
+      ],
+      "size": [
+        225,
+        364.375
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "json_string",
+          "type": "STRING",
+          "widget": {
+            "name": "json_string"
+          },
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "song_title",
+          "type": "STRING",
+          "links": [
+            85
+          ]
+        },
+        {
+          "name": "tags",
+          "type": "STRING",
+          "links": [
+            114
+          ]
+        },
+        {
+          "name": "lyrics",
+          "type": "STRING",
+          "links": [
+            115
+          ]
+        },
+        {
+          "name": "bpm",
+          "type": "STRING",
+          "links": [
+            91
+          ]
+        },
+        {
+          "name": "duration",
+          "type": "STRING",
+          "links": [
+            92
+          ]
+        },
+        {
+          "name": "key",
+          "type": "STRING",
+          "links": [
+            108
+          ]
+        },
+        {
+          "name": "language",
+          "type": "STRING",
+          "links": [
+            109
+          ]
+        },
+        {
+          "name": "time_signature",
+          "type": "STRING",
+          "links": [
+            110
+          ]
+        },
+        {
+          "name": "seed",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "links": [
+            111
+          ]
+        },
+        {
+          "name": "summary",
+          "type": "STRING",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "aux_id": "Clinteastman/html_parse_sync",
+        "ver": "7ad3eaa9f5803a1f21f18987fd2134683446b188",
+        "Node name for S&R": "SongJSONSplit",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 143,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -154.11781160693454,
+        -805.0234079683203
+      ],
+      "size": [
+        225,
+        124.375
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Song Title",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "I Don't Belong Here"
+      ]
+    },
+    {
+      "id": 149,
+      "type": "StringToInt",
+      "pos": [
+        -93.99329988818454,
+        -418.5104820785632
+      ],
+      "size": [
+        225,
+        7.59375
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            100
+          ]
+        }
+      ],
+      "title": "BPM",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-art-venture",
+        "ver": "090418eb8d466a6821f33981e804531b2e57ebd8",
+        "Node name for S&R": "StringToInt",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "0"
+      ]
+    },
+    {
+      "id": 150,
+      "type": "JWStringToFloat",
+      "pos": [
+        -97.56344962776802,
+        -351.0947105941882
+      ],
+      "size": [
+        225,
+        7.59375
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            103,
+            104
+          ]
+        }
+      ],
+      "title": "Duration",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "jameswalker-nodes",
+        "ver": "5bd85aaf7616878471469c4ec7e11bbd0cef3bf2",
+        "Node name for S&R": "JWStringToFloat",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        "0.0"
+      ]
+    },
+    {
+      "id": 151,
+      "type": "String To Combo JK",
+      "pos": [
+        -137.4443632562402,
+        -291.50893585460494
+      ],
+      "size": [
+        347.078125,
+        7.59375
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "name": "any",
+          "type": "*",
+          "links": [
+            105
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-jakeupgrade",
+        "ver": "49d7c1db8a43a40e1f535c9b6eb878baeae014cc",
+        "Node name for S&R": "String To Combo JK",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 152,
+      "type": "String To Combo JK",
+      "pos": [
+        -125.80400952360105,
+        -237.6086537365493
+      ],
+      "size": [
+        347.078125,
+        7.59375
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "name": "any",
+          "type": "*",
+          "links": [
+            106
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-jakeupgrade",
+        "ver": "49d7c1db8a43a40e1f535c9b6eb878baeae014cc",
+        "Node name for S&R": "String To Combo JK",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 153,
+      "type": "String To Combo JK",
+      "pos": [
+        -124.62155509651802,
+        -182.81793650564668
+      ],
+      "size": [
+        347.078125,
+        7.59375
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 110
+        }
+      ],
+      "outputs": [
+        {
+          "name": "any",
+          "type": "*",
+          "links": [
+            107
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-jakeupgrade",
+        "ver": "49d7c1db8a43a40e1f535c9b6eb878baeae014cc",
+        "Node name for S&R": "String To Combo JK",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 154,
+      "type": "easy cleanGpuUsed",
+      "pos": [
+        1036.1445039312603,
+        124.49963619400614
+      ],
+      "size": [
+        298.71875,
+        7.59375
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 112
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            113
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui-easy-use",
+        "ver": "7c470c67d6df44498e52c902173c1ac77cd5bdfd",
+        "Node name for S&R": "easy cleanGpuUsed",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.6.2"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 156,
+      "type": "MarkdownNote",
+      "pos": [
+        -1125.6533205045039,
+        -688.8015519570355
+      ],
+      "size": [
+        468.0625,
+        345.390625
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.6.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Models\n\nhttps://huggingface.co/Aryanne/acestep-v15-test-merges/blob/main/acestep_v1.5_merge_sft_turbo_ta_0.3.safetensors\n\nhttps://huggingface.co/Aryanne/acestep-v15-test-merges/blob/main/acestep_v1.5_merge_sft_turbo_ta_0.5.safetensors\n\nNodes\n\nhttps://github.com/Clinteastman/ComfyUI-CE-Nodes\n\nhttps://github.com/jeankassio/JK-AceStep-Nodes\n\nSpecial Thanks\n\nhttps://www.reddit.com/user/iChrist/"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      20,
+      78,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      21,
+      94,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      22,
+      47,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      23,
+      98,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      25,
+      106,
+      0,
+      18,
+      1,
+      "VAE"
+    ],
+    [
+      26,
+      94,
+      0,
+      47,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      27,
+      104,
+      0,
+      78,
+      0,
+      "MODEL"
+    ],
+    [
+      28,
+      105,
+      0,
+      94,
+      0,
+      "CLIP"
+    ],
+    [
+      29,
+      111,
+      0,
+      107,
+      0,
+      "AUDIO"
+    ],
+    [
+      30,
+      78,
+      0,
+      109,
+      0,
+      "MODEL"
+    ],
+    [
+      31,
+      94,
+      0,
+      109,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      32,
+      47,
+      0,
+      109,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      33,
+      110,
+      0,
+      109,
+      3,
+      "LATENT"
+    ],
+    [
+      34,
+      78,
+      0,
+      110,
+      0,
+      "MODEL"
+    ],
+    [
+      35,
+      94,
+      0,
+      110,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      36,
+      47,
+      0,
+      110,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      37,
+      3,
+      0,
+      110,
+      3,
+      "LATENT"
+    ],
+    [
+      38,
+      18,
+      0,
+      111,
+      0,
+      "AUDIO"
+    ],
+    [
+      68,
+      134,
+      0,
+      107,
+      1,
+      "STRING"
+    ],
+    [
+      69,
+      135,
+      0,
+      116,
+      4,
+      "INT"
+    ],
+    [
+      70,
+      136,
+      0,
+      94,
+      3,
+      "INT"
+    ],
+    [
+      71,
+      137,
+      0,
+      116,
+      0,
+      "IMAGE"
+    ],
+    [
+      72,
+      138,
+      0,
+      116,
+      1,
+      "AUDIO"
+    ],
+    [
+      74,
+      140,
+      0,
+      116,
+      5,
+      "STRING"
+    ],
+    [
+      85,
+      142,
+      0,
+      143,
+      0,
+      "STRING"
+    ],
+    [
+      91,
+      142,
+      3,
+      149,
+      0,
+      "STRING"
+    ],
+    [
+      92,
+      142,
+      4,
+      150,
+      0,
+      "STRING"
+    ],
+    [
+      96,
+      116,
+      0,
+      142,
+      0,
+      "STRING"
+    ],
+    [
+      100,
+      149,
+      0,
+      94,
+      4,
+      "INT"
+    ],
+    [
+      103,
+      150,
+      0,
+      94,
+      5,
+      "FLOAT"
+    ],
+    [
+      104,
+      150,
+      0,
+      98,
+      0,
+      "FLOAT"
+    ],
+    [
+      105,
+      151,
+      0,
+      94,
+      8,
+      "COMBO"
+    ],
+    [
+      106,
+      152,
+      0,
+      94,
+      7,
+      "COMBO"
+    ],
+    [
+      107,
+      153,
+      0,
+      94,
+      6,
+      "COMBO"
+    ],
+    [
+      108,
+      142,
+      5,
+      151,
+      0,
+      "STRING"
+    ],
+    [
+      109,
+      142,
+      6,
+      152,
+      0,
+      "STRING"
+    ],
+    [
+      110,
+      142,
+      7,
+      153,
+      0,
+      "STRING"
+    ],
+    [
+      111,
+      142,
+      9,
+      134,
+      0,
+      "STRING"
+    ],
+    [
+      112,
+      109,
+      0,
+      154,
+      0,
+      "LATENT"
+    ],
+    [
+      113,
+      154,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      114,
+      142,
+      1,
+      94,
+      1,
+      "STRING"
+    ],
+    [
+      115,
+      142,
+      2,
+      94,
+      2,
+      "STRING"
+    ],
+    [
+      116,
+      142,
+      10,
+      126,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "workflowRendererVersion": "Vue",
+    "ds": {
+      "scale": 0.5445000000000003,
+      "offset": [
+        886.0379825023966,
+        564.8874737438241
+      ]
+    },
+    "frontendVersion": "1.38.13",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

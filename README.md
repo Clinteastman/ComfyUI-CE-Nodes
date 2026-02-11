@@ -146,6 +146,8 @@ The node automatically handles messy LLM output:
 }
 ```
 
+Special thanks to [iChrist](https://www.reddit.com/user/iChrist/) for the basis of the workflow and prompt.
+
 ---
 
 ## Changelog

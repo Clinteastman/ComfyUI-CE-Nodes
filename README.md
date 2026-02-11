@@ -6,17 +6,12 @@ A collection of custom utility nodes for ComfyUI. Stdlib only — no extra pip p
 
 ## Installation
 
-Clone this repo into your ComfyUI `custom_nodes/` directory:
-
-```text
-ComfyUI/
-  custom_nodes/
-    ComfyUI-CE-Nodes/
-      __init__.py
-      README.md
+```bash
+cd ComfyUI/custom_nodes
+git clone https://github.com/Clinteastman/ComfyUI-CE-Nodes.git
 ```
 
-Restart ComfyUI. Nodes appear under **Text / Parsing**.
+Restart ComfyUI. Nodes appear under **Text / Parsing**. No extra pip packages required.
 
 ---
 

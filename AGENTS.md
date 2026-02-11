@@ -8,7 +8,7 @@ always use byterover-store-knowledge to store all the critical informations afte
 
 ---
 
-# Project Rules: html_parse_sync Node
+# Project Rules: ComfyUI-CE-Nodes
 
 These guidelines standardize future contributions and automated agent modifications.
 
@@ -46,7 +46,7 @@ These guidelines standardize future contributions and automated agent modificati
 ## Testing (Manual Quick Check)
 
 ```python
-from custom_nodes.html_parse_sync import HTMLParseSync
+from custom_nodes.ComfyUI_CE_Nodes import HTMLParseSync
 sample_html = "<html><head><title>X</title></head><body><article><h1>H</h1><p>Body</p></article></body></html>"
 print(HTMLParseSync().run(sample_html, "https://example.com/x")[0])
 ```

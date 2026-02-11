@@ -1,6 +1,6 @@
-# html_parse_sync/__init__.py
+# ComfyUI-CE-Nodes/__init__.py
 # ------------------------------------------------------------
-# HTML Parse (sync) — extracts title/author/content + domain/site
+# CE Nodes — custom utility nodes for ComfyUI
 # Inputs :
 #   - html (STRING, required) : full page HTML
 #   - url  (STRING, optional) : original page URL (for domain/site)
@@ -14,7 +14,7 @@ from datetime import datetime
 from html import unescape as _unescape
 from urllib.parse import urlparse
 
-__version__ = "0.1.3"
+__version__ = "0.2.0"
 
 # Default maximum characters retained for extracted content (can be overridden per run)
 DEFAULT_MAX_CHARS = 8000
@@ -288,3 +288,57 @@ class HTMLParseSync:
 
 NODE_CLASS_MAPPINGS["HTMLParseSync"] = HTMLParseSync
 NODE_DISPLAY_NAME_MAPPINGS["HTMLParseSync"] = "HTML Parse (sync)"
+
+
+# ---------- song JSON splitter node ----------
+class SongJSONSplit:
+    """Split a song-metadata JSON string into individual outputs.
+
+    Inputs:
+      - json_string (STRING, required): JSON with song fields.
+
+    Outputs: song_title, tags, lyrics, bpm, duration, key, language,
+             time_signature, seed (all STRING).
+    """
+
+    _FIELDS = (
+        "song_title", "tags", "lyrics", "bpm", "duration",
+        "key", "language", "time_signature", "seed",
+    )
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "json_string": ("STRING", {"default": "", "multiline": True}),
+            },
+        }
+
+    RETURN_TYPES = tuple("STRING" for _ in _FIELDS)
+    RETURN_NAMES = _FIELDS
+    FUNCTION = "run"
+    CATEGORY = "Text/Parsing"
+
+    def run(self, json_string: str = ""):
+        raw = (json_string or "").strip()
+        # Strip markdown code fences (```json ... ``` or ``` ... ```)
+        if raw.startswith("```"):
+            raw = raw.split("\n", 1)[1] if "\n" in raw else raw[3:]
+        if raw.endswith("```"):
+            raw = raw[:-3]
+        raw = raw.strip()
+        # Extract only the {...} JSON object, discarding surrounding text
+        start = raw.find("{")
+        end = raw.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            raw = raw[start:end + 1]
+        try:
+            data = _json.loads(raw or "{}")
+        except Exception:
+            data = {}
+
+        return tuple(str(data.get(f, "")) if data.get(f) is not None else "" for f in self._FIELDS)
+
+
+NODE_CLASS_MAPPINGS["SongJSONSplit"] = SongJSONSplit
+NODE_DISPLAY_NAME_MAPPINGS["SongJSONSplit"] = "Song JSON Split"

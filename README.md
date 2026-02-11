@@ -1,77 +1,59 @@
-# HTML Parse (sync) — ComfyUI Custom Node
+# ComfyUI-CE-Nodes
 
-Extract clean article metadata (title, author, content, domain, site name + JSON blob) from raw HTML inside a ComfyUI workflow **without making network requests**.
-
-> Fast, dependency‑light (only stdlib: `re`, `json`, `datetime`, `html`, `urllib`), and intentionally heuristic. Ideal for lightweight content ingestion, prototyping RAG pipelines, or feeding LLM prompts.
-
----
-
-## Features
-
-- Strips scripts, styles, comments, nav/aside/footer/header/iframes/templates and common ad / promo / cookie / newsletter blocks.
-- Attempts to locate the _main content_ via `<article>`, `<main>`, or common content class names; falls back to `<body>`.
-- Extracts:
-  - `title` (from `<h1>`, OpenGraph, `<title>`, or known title classes)
-  - `author` (meta name=author, byline/author class spans/divs, rel=author links)
-  - `content` (normalized plaintext; lists → bullets, tables → text)
-  - `domain` + `site_name` (derived from provided or discovered URL)
-  - `word_count` (separate output + JSON)
-  - `version` metadata + timestamp
-- Word-safe truncation option (prevents mid-word cuts) with configurable max length.
-- Unicode preserved (`ensure_ascii=False`).
+A collection of custom utility nodes for ComfyUI. Stdlib only — no extra pip packages required.
 
 ---
 
 ## Installation
 
-Place (or clone) this folder into your ComfyUI `custom_nodes/` directory:
+Clone this repo into your ComfyUI `custom_nodes/` directory:
 
 ```text
 ComfyUI/
   custom_nodes/
-    html_parse_sync/
+    ComfyUI-CE-Nodes/
       __init__.py
       README.md
 ```
 
-Restart ComfyUI. The node will appear under: `Text / Parsing` as **HTML Parse (sync)**.
-
-No extra Python packages required.
+Restart ComfyUI. Nodes appear under **Text / Parsing**.
 
 ---
 
-## Node Specification
+## Nodes
 
-**Class**: `HTMLParseSync`
+### HTML Parse (sync)
 
-### Inputs
+**Class:** `HTMLParseSync`
+
+Extract clean article metadata from raw HTML **without making network requests**. Uses regex heuristics — no external parser dependencies.
+
+#### Inputs
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | html | STRING | Yes | Raw HTML content of the page. |
-| url  | STRING | No  | Original page URL (used for domain + site heuristics; can be blank). |
-| max_chars | INT | No | Max content characters (capped, word-safe by default). |
+| url | STRING | No | Original page URL (used for domain/site heuristics; can be blank). |
+| max_chars | INT | No | Max content characters (default 8000, word-safe by default). |
 | word_safe | BOOLEAN | No | If true, truncation ends at a word boundary. |
 | prompt_template | STRING | No | Optional prompt template with placeholders (see below). |
 
-If `url` is blank, the node will try to discover a canonical/og/base URL inside the HTML.
+If `url` is blank the node tries to discover a canonical/og/base URL from the HTML.
 
-### Outputs (all STRING)
+#### Outputs (all STRING)
 
-| Position | Name | Description |
-|----------|------|-------------|
+| # | Name | Description |
+|---|------|-------------|
 | 1 | json | JSON string with all extracted fields. |
 | 2 | title | Extracted title (may be empty). |
 | 3 | content | Cleaned article plaintext (capped). |
 | 4 | author | Author/byline (may be empty). |
-| 5 | domain | e.g., `example.com`. |
+| 5 | domain | e.g. `example.com`. |
 | 6 | site_name | Heuristic site identifier (root minus public suffix). |
 | 7 | word_count | Word count (stringified integer). |
 | 8 | prompt | Rendered prompt if a template was provided (else empty). |
 
-### JSON Structure
-
-Example `json` output field (pretty printed here for clarity):
+#### JSON Structure
 
 ```json
 {
@@ -87,11 +69,9 @@ Example `json` output field (pretty printed here for clarity):
 }
 ```
 
-### Prompt Templating
+#### Prompt Templating
 
-If you provide a `prompt_template`, the node renders it and outputs the result as the final `prompt` output.
-
-Placeholders (use Python `{name}` style):
+Provide a `prompt_template` and the node renders it with these placeholders:
 
 | Placeholder | Meaning |
 |-------------|---------|
@@ -99,93 +79,86 @@ Placeholders (use Python `{name}` style):
 | `{author}` | Extracted author/byline |
 | `{content}` | Full (possibly truncated) cleaned content |
 | `{content_snip}` | ~1000 char word-safe snippet of content |
-| `{domain}` | Domain (e.g., example.com) |
+| `{domain}` | Domain (e.g. example.com) |
 | `{site_name}` | Site name heuristic |
 | `{url}` | Discovered or provided URL |
 | `{word_count}` | Integer word count |
 | `{version}` | Node version |
 | `{extracted_at}` | ISO UTC timestamp |
 
-Unknown placeholders are left unchanged (`{unknown_placeholder}`) so you can spot typos easily.
+Unknown placeholders are left unchanged. Escape literal braces with `{{` / `}}`.
 
-Example template:
+#### Heuristics & Notes
 
-```text
-Summarize the article below. Title: {title}\nDomain: {domain}\nWords: {word_count}\n\n{content_snip}\n\nReturn a JSON summary.
+- Main content detected via `<article>`, `<main>`, or content-class `<div>`; falls back to `<body>`.
+- Strips scripts, styles, comments, nav/footer/header/aside/iframes and common ad/promo/cookie blocks.
+- `<li>` converted to `•` bullets. Tables flattened to spaced text.
+- No JavaScript execution — dynamic/lazy-loaded content will be absent.
+
+---
+
+### Song JSON Split
+
+**Class:** `SongJSONSplit`
+
+Split a song-metadata JSON string into individual typed outputs. Designed to receive JSON from an LLM and break it into separate connections for downstream nodes.
+
+#### Input cleaning
+
+The node automatically handles messy LLM output:
+- Strips markdown code fences (`` ```json ... ``` ``)
+- Discards any text outside the `{...}` JSON object
+- Invalid or empty JSON returns all empty strings (no errors)
+
+#### Inputs
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| json_string | STRING | Yes | JSON string with song metadata fields. |
+
+#### Outputs (all STRING)
+
+| # | Name | Description |
+|---|------|-------------|
+| 1 | song_title | Song title. |
+| 2 | tags | Style/production description tags. |
+| 3 | lyrics | Full lyrics with newlines preserved. |
+| 4 | bpm | Beats per minute. |
+| 5 | duration | Duration in seconds. |
+| 6 | key | Musical key (e.g. `E minor`). |
+| 7 | language | Language code (e.g. `en`). |
+| 8 | time_signature | Time signature numerator (e.g. `4`). |
+| 9 | seed | Seed value (empty string if null). |
+
+#### Example Input
+
+```json
+{
+  "song_title": "Midnight Hustle",
+  "tags": "Hard-hitting trap production with thunderous 808 bass...",
+  "lyrics": "[Intro]\n(dark pad fades in)\nYeah, yeah...",
+  "bpm": 145,
+  "duration": 150,
+  "key": "E minor",
+  "language": "en",
+  "time_signature": 4,
+  "seed": null
+}
 ```
-
-Note: If you need a literal brace, escape with double braces `{{` or `}}`.
-
----
-
-## Usage Example (Conceptual)
-
-1. Use a node (or external process) to fetch HTML (e.g., via a separate HTTP fetch custom node or preloaded string).
-2. Connect the HTML string to `html` input.
-3. (Optional) Provide URL.
-4. Feed `content` or `json` to downstream LLM / embedding / summarization nodes.
-
-### Minimal Test (outside ComfyUI)
-
-```python
-from custom_nodes.html_parse_sync import HTMLParseSync
-html = """<html><head><title>Test</title><meta name=author content='Alex'></head>\n<body><article><h1>Sample Heading</h1><p>Hello <b>world</b>.</p></article></body></html>"""
-node = HTMLParseSync()
-json_out, title, content, author, domain, site, wc = node.run(html, "https://example.org/test")
-print(title, author, domain, site, wc)
-print(content)
-print(json_out)
-```
-
----
-
-## Heuristics & Notes
-
-- Main section detection favors first matching candidate with the **largest normalized text length** among `<article>`, `<main>`, and content-class `<div>`.
-- Author extraction is best‑effort; pages with unusual markup may return empty.
-- `site_name` is derived by shaving a recognized public suffix (simplistic list). Edge TLDs not in the list may produce longer `site_name` strings.
-- Content bullets: `<li>` → `•`. Tables flattened to spaced cell text with row breaks.
-- Excessive whitespace collapsed; multiple blank lines reduced to a max of two.
-- Hard length cap ensures predictable token usage (default 8000, adjustable; <0 disables; word boundary safe by default).
-
----
-
-## Limitations / Non‑Goals
-
-- No JavaScript execution (dynamic / lazy-loaded content will be absent).
-- No full boilerplate readability scoring (e.g., arc90/Readability). Simple regex heuristics only.
-- Not a sanitizer against malicious HTML—intended for already trusted/fetched content.
-- International domain / complex public suffix parsing is minimal (does not integrate with the Public Suffix List library).
-
----
-
-## Extending
-
-Common tweak points inside `__init__.py`:
-
-- `_BLOCK_TAGS` — add/remove container tags to drop.
-- `_CANDIDATES` — expand regex list for main content detection.
-- `_cap_wordsafe` / `_cap_chars` — adjust truncation behavior.
-- `_extract_author` / `_extract_title` — add more patterns.
-- `_strip_blocks` — extend class substring filters (ads, cookie notices, etc.).
-
-All helpers are file‑local; feel free to convert to a more modular structure if complexity grows.
-
----
-
-## Error Handling
-
-The node avoids raising exceptions for malformed input; unexpected parsing errors fall back to safe defaults (`""` or `"unknown"`).
 
 ---
 
 ## Changelog
 
+### 0.2.0
+
+- Added **Song JSON Split** node.
+- Renamed repository to ComfyUI-CE-Nodes.
+
 ### 0.1.3
 
-- Added prompt templating system with new `prompt_template` input and `prompt` output.
+- Added prompt templating system with `prompt_template` input and `prompt` output.
 - Added `content_snip` placeholder.
-- Version bump.
 
 ### 0.1.2
 
@@ -193,33 +166,17 @@ The node avoids raising exceptions for malformed input; unexpected parsing error
 - Added semantic `version` field in JSON.
 - Added word-safe truncation option (`word_safe`).
 - Improved canonical URL attribute-order handling.
-- `_clean` now HTML-unescapes entities before normalization.
 
 ### 0.1.1
 
-- Fixed use of non‑existent Python `str.trim()` (now uses standardized whitespace normalization + `strip()`).
+- Fixed use of non-existent Python `str.trim()`.
 
 ### 0.1.0
 
-- Initial release.
-
----
-
-## Roadmap Ideas
-
-- Optional readability scoring.
-- Language detection for downstream model routing.
-- Optional markdown formatting (e.g., heading reconstruction).
-- Public Suffix List integration for better `site_name` derivation.
+- Initial release with HTML Parse (sync).
 
 ---
 
 ## License
 
-Choose and add a license file (e.g., MIT) if you plan to distribute. (Currently unspecified.)
-
----
-
-## Feedback
-
-PRs and suggestions welcome. If you extend heuristics for specific publishers, consider contributing patterns back.
+Currently unspecified. Add a license file (e.g. MIT) if distributing.
